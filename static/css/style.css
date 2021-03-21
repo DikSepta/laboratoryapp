@@ -1,0 +1,91 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgb(238, 253, 255);
+}
+
+h1 {
+    font-weight: 900;
+    font-size: 3rem;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+h3 {
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.navbar {
+    background-color: rgb(238, 253, 255);
+}
+
+#title {
+    position: relative;
+    top: 3.5rem;
+    width: 100%;
+    height: 90vh;
+    background-size: cover;
+}
+
+#title-text {
+    padding-left: 2rem;
+}
+
+#title p {
+    font-weight: 500;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* Services */
+#services {
+    position: relative;
+    top: 5rem;
+    margin: 3rem 2rem;
+}
+
+#services-title {
+    padding-bottom: 2rem;
+}
+
+.card {
+    border-style: hidden;
+    background-color: rgb(238, 253, 255);
+}
+
+.card-header {
+    background-color: white;
+}
+
+.card-body {
+    background-color: white;
+}
+
+
+#footer {
+    position: relative;
+    top: 5rem;
+    background-color: rgba(0, 7, 34, 0.782);
+    padding: 4rem 2rem;
+    color: white;
+}
+
+.footer-icon {
+    margin: 2rem 1rem;
+}
+
+/* login */
+.login-page {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 7, 34, 0.782);
+}
+
+.login-form {
+    background-color: rgb(238, 253, 255);
+    border-style: solid;
+    border-radius: 0.5rem;
+}

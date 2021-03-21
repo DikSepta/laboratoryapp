@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<div class="login-page row d-flex justify-content-center">
+    <form  method="POST" class="login-form col-md-4 d-flex flex-column justify-content-center"> {% csrf_token %}
+        <h2 class="text-center">Login</h2>
+        {% for field in login_form %}
+          <p>
+          {% for error in field.errors %}
+            <p style="color: red">{{ error }}</p>
+          {% endfor %}
+          </p>
+          {% endfor %}
+        {% if login_form.non_field_errors %}
+        <div style="color: red">
+          <p>{{login_form.non_field_errors}}</p>
+        </div>
+
+        {% endif %} 
+
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>                
+</div>
+{% endblock content %}
