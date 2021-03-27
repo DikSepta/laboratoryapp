@@ -20,7 +20,7 @@
                 </li>
               </ul>
             <a class="btn btn-outline-success mr-2" href="{% url 'login' %}">Login</a>
-            <a class="btn btn-outline-success ml-2">Register</a>
+            <a class="btn btn-outline-success ml-2" href="{% url 'register' %}">Register</a>
             </div>
           </nav>
     </header>
@@ -37,36 +37,18 @@
         <!-- Services cards -->
         <section id="services" class="container-fluid row">
             <h2 id="services-title" class="col-lg-12 text-center">Our Services</h2>
-            <div class="col-lg-4 text-center card">
+            {% for service in services %}
+            <div class="col-lg-4 text-center card mb-5">
                 <div class="card-header">
-                    <h3>Service A</h3>
+                    <h3>{{service.service}}</h3>
                 </div>
                 <div class="card-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    <p>$20</p>
+                    <p>{{service.description}}</p>
+                    <p>${{service.price}}</p>
                     <a class="btn btn-outline-success" href="{% url 'login' %}">Make an Appointment</a>        
                 </div>
             </div>
-            <div class="col-lg-4 text-center card">
-                <div class="card-header">
-                    <h3>Service B</h3>
-                </div>
-                <div class="card-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    <p>$20</p>
-                    <a class="btn btn-outline-success" href="{% url 'login' %}">Make an Appointment</a>        
-                </div>
-            </div>
-            <div class="col-lg-4 text-center card">
-                <div class="card-header">
-                    <h3>Service B</h3>
-                </div>
-                <div class="card-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    <p>$20</p>
-                    <a class="btn btn-outline-success" href="{% url 'login' %}">Make an Appointment</a>        
-                </div>
-            </div>
+            {% endfor %}
         </section>
     </main>
     <!-- Footer -->

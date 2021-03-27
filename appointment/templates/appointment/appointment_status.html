@@ -1,0 +1,42 @@
+{% extends 'dashboard.html'%}
+
+{% block dashboard_content %}
+<section id="appointment-list">
+    <h3>Appointment Status</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Registration ID</th>
+          <th scope="col">Service</th>
+          <th scope="col">Date</th>
+          <th scope="col">Status</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for appointment in appointments %}
+        <tr>
+          <td scope="row">{{appointment.registration_id}}</td>
+          <td scope="row">{{appointment.service}}</td>
+          <td scope="row">{{appointment.date}}</td>
+          {% if appointment.status == "WA" %}
+          <td scope="row" style="color: black;">Waiting Approval</td>
+          {% elif appointment.status == "A" %}
+          <td scope="row" style="color: green;">Approved</td>
+          {% elif appointment.status == "C" %}
+          <td scope="row" style="color: red;">Canceled</td>
+          {% elif appointment.status == "R" %}
+          <td scope="row" style="color: red;">Rejected</td>
+          {% else %}
+          <td scope="row" style="color: gray;">Finished</td>
+          {% endif %}
+          <td scope="row">
+            <a href="{% url 'appointment:edit' appointment.registration_id %}" class="btn btn-primary btn-sm">Edit</a>
+            <a href="{% url 'appointment:change-status' id=appointment.registration_id status='C' %}" class="btn btn-danger btn-sm">Cancel</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section> 
+{% endblock dashboard_content %}

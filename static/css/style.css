@@ -89,3 +89,7 @@ h3 {
     border-style: solid;
     border-radius: 0.5rem;
 }
+
+.form-input {
+    display: block;
+}

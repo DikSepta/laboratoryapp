@@ -18,15 +18,20 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from home.views import home_screen_view
-
 from account.views import (
     login_view,
+    logout_view,
+    registration_view,
 )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_screen_view, name="home"),
     path('login/', login_view, name="login"),
+    path('logout/', logout_view, name="logout"),
+    path('register/', registration_view, name="register"),
+    path('appointment/', include('appointment.urls', 'appointment')),
+    path('service/', include('services.urls', 'services')),
 ]
 
 # if settings.DEBUG:

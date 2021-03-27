@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">President Lab</a>
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" href="{% url 'logout'%}">Logout</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              {% if not request.user.is_staff %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'appointment:add' %}">
+                  Make an Appointment
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'appointment:status' %}">
+                  Appointment Status
+                </a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'appointment:list' %}">
+                  Appointment List
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'services:list' %}">
+                  Services
+                </a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Welcome, {{user.first_name}}</h1>
+
+          </div>
+          {% block dashboard_content %}
+
+          {% endblock dashboard_content %}
+        </main>
+      </div>
+    </div>
+{% endblock content%}

@@ -1,0 +1,33 @@
+{% extends 'dashboard.html'%}
+
+{% block dashboard_content %}
+<section id="service-list">
+  <h3>Services</h3>
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Service</th>
+          <th scope="col">Description</th>
+          <th scope="col">Price</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for service in services %}
+        <tr>
+          <td scope="row">{{service.service_id}}</td>
+          <td scope="row">{{service.service}}</td>
+          <td scope="row">{{service.description}}</td>
+          <td scope="row">{{service.price}}</td>
+          <td scope="row">
+            <a href="{% url 'services:edit' service.service_id %}" class="btn btn-warning btn-sm my-1">Edit</a>
+            <a href="{% url 'services:delete' service.service_id%}" class="btn btn-danger btn-sm my-1">Remove</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <a class="btn btn-success mb-5" href="{% url 'services:add' %}">Add Service</a>
+  </section>  
+  {% endblock dashboard_content %}

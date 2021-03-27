@@ -1,0 +1,22 @@
+{% extends 'dashboard.html'%}
+
+{% block dashboard_content %}
+<section id="edit-service">
+    <h3>Edit Service</h3>
+    <form method="post"> {% csrf_token %}
+      <div class="form-group">
+        <label for="service">Title</label>
+        <input type="text" value="{{service.service}}" name="service" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text"  value="{{service.description}}" name="description" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input type="number"  value="{{service.price}}" name="price" class="form-control">
+      </div>
+      <button class="btn btn-success" type="submit">Submit</button>
+    </form>
+</section>  
+{% endblock dashboard_content %}
